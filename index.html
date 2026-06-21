@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoomaa School - Home of Knowledge and Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            opacity: 0.95;
+            animation: slideIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1rem auto 0;
+        }
+
+        /* Education Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .category-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Student Levels */
+        .levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .level-card {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .level-card:hover {
+            background: #667eea;
+            color: white;
+            border-color: #764ba2;
+        }
+
+        .level-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .level-card:hover h3 {
+            color: #ffd700;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-section h2::after {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .categories,
+            .levels,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">🎓 Hoomaa</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#levels">Levels</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Hoomaa School</h1>
+            <p>🌟 Home of Knowledge and Experience 🌟</p>
+            <p style="font-size: 1.2rem; opacity: 0.9;">A Volunteer-Led Religious Education Community</p>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Education Categories Section -->
+        <section id="categories">
+            <h2>Education Categories</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <h3>📖 Islamic Studies</h3>
+                    <p>Comprehensive Islamic education covering Quran, Hadith, and Islamic principles for all ages.</p>
+                </div>
+                <div class="category-card">
+                    <h3>🕌 Religious Values</h3>
+                    <p>Teaching moral and ethical values based on religious teachings and traditions.</p>
+                </div>
+                <div class="category-card">
+                    <h3>🤝 Community Service</h3>
+                    <p>Engaging in community service and social responsibility initiatives.</p>
+                </div>
+                <div class="category-card">
+                    <h3>📚 Academic Support</h3>
+                    <p>Supporting students in their academic journey with guidance and mentorship.</p>
+                </div>
+                <div class="category-card">
+                    <h3>🎯 Character Development</h3>
+                    <p>Nurturing strong character and personal development through Islamic teachings.</p>
+                </div>
+                <div class="category-card">
+                    <h3>💡 Life Skills</h3>
+                    <p>Practical life skills and personal growth workshops for youth development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Levels Section -->
+        <section id="levels">
+            <h2>Student Levels</h2>
+            <div class="levels">
+                <div class="level-card">
+                    <h3>👶 Beginners (Ages 5-8)</h3>
+                    <p>Introduction to basic Islamic concepts and Quranic recitation for young learners.</p>
+                </div>
+                <div class="level-card">
+                    <h3>📖 Intermediate (Ages 9-12)</h3>
+                    <p>Deeper Islamic knowledge, Quran memorization, and religious practices.</p>
+                </div>
+                <div class="level-card">
+                    <h3>🎓 Advanced (Ages 13-18)</h3>
+                    <p>Advanced Islamic studies, Hadith interpretation, and youth leadership programs.</p>
+                </div>
+                <div class="level-card">
+                    <h3>👨‍🎓 Adults</h3>
+                    <p>Comprehensive Islamic education and spiritual guidance for adult learners.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2>Get in Touch</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">We'd love to hear from you. Reach out through any of these channels:</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <a href="mailto:hoomaashool37@gmail.com">hoomaashool37@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4>✈️ Telegram</h4>
+                    <a href="https://t.me/hoomaayouthschool" target="_blank">@hoomaayouthschool</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Hoomaa School. All rights reserved.</p>
+        <p>A Volunteer-Led Religious Education Community</p>
+        <p>Home of Knowledge and Experience</p>
+    </footer>
+</body>
+</html>
